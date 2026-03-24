@@ -12,7 +12,7 @@ const
   N = {$ifdef hazar8}$100{$endif}{$ifdef hazar16}$10000{$endif};
 
 type
-  THazarInteger = {$ifdef hazar8}byte{$endif}{$ifdef hazar16}Word{$endif};
+  THazarInteger = {$ifdef hazar8}Byte{$endif}{$ifdef hazar16}Word{$endif};
   THazarData = array [S..E] of THazarInteger;
   THazarEncryption = class
   private
@@ -37,6 +37,7 @@ begin
   GenerateBox(FSBox);
   FMBox := FSBox;
   GenerateBox(FMBox);
+  GenerateKey;
 end;
 
 procedure THazarEncryption.GenerateBox(var Box: THazarData);
